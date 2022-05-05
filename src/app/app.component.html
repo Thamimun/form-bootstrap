@@ -1,0 +1,16 @@
+<form [formGroup]="checkoutForm" (ngSubmit)=" onSubmit()">
+  <div class="form-group">
+    <label for="name">name</label>
+    <input type="text" formControlName="name"  class="form-control" id="name" placeholder="name">
+  </div><br>
+  <div class="form-group">
+    <label for="addreess">addreess</label>
+    <input type="text"  formControlName="addreess" class="form-control"  id="addreess" placeholder="addreess">
+  </div><br>
+  <div class="form-group">
+    <label for="mobile">mobile number</label>
+    <input type="number" formControlName="number" class="form-control" id="number" placeholder="number">
+  </div><br>
+ 
+  <button type="submit" class="btn btn-primary">Submit</button>
+</form>
