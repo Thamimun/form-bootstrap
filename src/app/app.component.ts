@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { FormBuilder,FormGroup,Validators,FormControl } from '@angular/forms';
+import { httpService } from './http.service';
 
 @Component({
   selector: 'app-root',
@@ -7,7 +8,7 @@ import { FormBuilder,FormGroup,Validators,FormControl } from '@angular/forms';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  checkoutForm=new FormGroup({
+  checkoutForm=new FormGroup ({
     name : new FormControl(''),
     addreess : new FormControl(''),
     number : new FormControl(''),
@@ -15,11 +16,14 @@ export class AppComponent {
   })
     
   constructor( 
-     private formBuilder:FormBuilder,) 
+     private formBuilder:FormBuilder,public data:httpService) 
   {}
   onSubmit(){
-console.log (this.checkoutForm.value);
-    
+    this.data.addform(this.checkoutForm.value).subscribe((result)=>{
+      console.log("result data",result)
+      
+      this.checkoutForm.reset();
+    })
     }
 
 }
