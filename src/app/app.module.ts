@@ -5,6 +5,9 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { ReactiveFormsModule } from '@angular/forms';
+import {httpService}from './http.service'
+import {DataService}from './global.service'
+import { HttpClientModule,HttpClientXsrfModule} from '@angular/common/http';
 
 
 @NgModule({
@@ -14,9 +17,9 @@ import { ReactiveFormsModule } from '@angular/forms';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    NgbModule,ReactiveFormsModule
+    NgbModule,ReactiveFormsModule,HttpClientModule
   ],
-  providers: [],
+  providers: [httpService,DataService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
